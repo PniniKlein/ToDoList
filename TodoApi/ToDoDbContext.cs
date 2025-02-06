@@ -31,13 +31,13 @@ public partial class ToDoDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("items");
+            entity.ToTable("Items");
 
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.IsComplete).HasColumnName("isComplete");
+            entity.Property(e => e.Id).HasColumnName("Id");
+            entity.Property(e => e.IsComplete).HasColumnName("IsComplete");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
-                .HasColumnName("name");
+                .HasColumnName("Name");
         });
 
         OnModelCreatingPartial(modelBuilder);
