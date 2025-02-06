@@ -23,15 +23,15 @@ var app = builder.Build();
 
 app.UseCors("AllowAll");
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDo API V1");
         options.RoutePrefix = string.Empty;
     });
-}
+// }
 
 app.MapGet("/items", async (ToDoDbContext db) =>
     await db.Items.ToListAsync());
